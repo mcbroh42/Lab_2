@@ -28,7 +28,7 @@ void ReadFile::close()
    }
 }
 
-String ReadFile::readLine()
+String* ReadFile::readLine()
 {
    if (closed) return NULL;
    if (_eof) return NULL;
@@ -36,9 +36,7 @@ String ReadFile::readLine()
    string text;
    _eof = !(getline(input_file, text));
 
-   String str = String(text.c_str());
+   String* str = new String((const char* ) text.c_str());
    return str;
 }
 
-//mcbroh42@students.tntech.edu
-//615-332-1813
